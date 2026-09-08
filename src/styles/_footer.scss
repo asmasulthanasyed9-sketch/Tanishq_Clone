@@ -1,0 +1,241 @@
+@import 'variables';
+
+.footer {
+  background: $color-maroon;
+  color: $color-white;
+
+  .footer-top-border {
+    height: 3px;
+    background: linear-gradient(to right, $color-maroon-dark, $color-gold, $color-maroon-dark);
+  }
+
+  .footer-main {
+    padding: 56px 0 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 1fr 200px;
+    gap: 40px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+  }
+}
+
+.footer-brand {
+  @media (max-width: $bp-tablet) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+    gap: 16px;
+    grid-column: 1 / -1;
+  }
+
+  img.footer-logo {
+    height: 44px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 20px;
+
+    @media (max-width: $bp-tablet) {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-app {
+    p {
+      font-size: 11px;
+      color: rgba($color-white, 0.7);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      img {
+        height: 32px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+        transition: opacity $transition-fast;
+
+        &:hover { opacity: 0.8; }
+      }
+    }
+  }
+}
+
+.footer-col {
+  h5 {
+    font-family: $font-sans;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-gold-light;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  li a {
+    font-size: 13px;
+    color: rgba($color-white, 0.75);
+    transition: color $transition-fast, padding-left $transition-fast;
+    display: block;
+
+    &:hover {
+      color: $color-white;
+      padding-left: 4px;
+    }
+  }
+}
+
+.footer-contact {
+  h5 {
+    font-family: $font-sans;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-gold-light;
+    margin-bottom: 16px;
+  }
+
+  .contact-phone {
+    font-family: $font-serif;
+    font-size: 18px;
+    color: $color-white;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .contact-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+
+    a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba($color-white, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color $transition-fast, background $transition-fast;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: rgba($color-white, 0.8);
+      }
+
+      &:hover {
+        border-color: $color-gold-light;
+        background: rgba($color-gold-light, 0.1);
+
+        svg { color: $color-gold-light; }
+      }
+    }
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba($color-white, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color $transition-fast, background $transition-fast, transform $transition-fast;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: rgba($color-white, 0.75);
+    }
+
+    &:hover {
+      border-color: $color-gold-light;
+      background: rgba($color-gold-light, 0.12);
+      transform: translateY(-2px);
+
+      svg { color: $color-gold-light; }
+    }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba($color-white, 0.12);
+  padding: 24px 0;
+
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 11px;
+      color: rgba($color-white, 0.5);
+    }
+
+    a {
+      font-size: 11px;
+      color: rgba($color-white, 0.6);
+      transition: color $transition-fast;
+
+      &:hover { color: $color-gold-light; }
+    }
+
+    span {
+      color: rgba($color-white, 0.2);
+    }
+  }
+
+  .footer-payments {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      height: 20px;
+      filter: brightness(0) invert(1) opacity(0.5);
+      transition: opacity $transition-fast;
+
+      &:hover { opacity: 0.9; filter: brightness(0) invert(1) opacity(0.9); }
+    }
+  }
+}

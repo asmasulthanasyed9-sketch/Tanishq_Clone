@@ -1,0 +1,646 @@
+@import 'variables';
+
+// ─── COLLECTIONS GRID ───────────────────────────────────────────────
+.collections-section {
+  background: $color-white;
+  padding: 60px 0 40px;
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .collection-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+
+      @media (max-width: $bp-tablet) {
+        height: 260px;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .card-label {
+      color: $color-white;
+      font-family: $font-serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+  }
+}
+
+// ─── SHOP BY CATEGORY ───────────────────────────────────────────────
+.categories-section {
+  background: $color-bg-light;
+  padding: 50px 0;
+
+  .categories-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 0 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media (max-width: $bp-tablet) {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+    text-decoration: none;
+
+    &:hover .cat-circle {
+      border-color: $color-maroon;
+      box-shadow: 0 6px 20px rgba($color-maroon, 0.15);
+      transform: translateY(-4px);
+    }
+
+    &:hover .cat-name {
+      color: $color-maroon;
+    }
+  }
+
+  .cat-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid $color-gray-border;
+    overflow: hidden;
+    transition: border-color $transition-med, box-shadow $transition-med, transform $transition-med;
+    background: $color-white;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .cat-name {
+    font-size: 11px;
+    font-family: $font-sans;
+    color: $color-gray-dark;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-align: center;
+    transition: color $transition-fast;
+    white-space: nowrap;
+  }
+}
+
+// ─── TRENDING NOW ───────────────────────────────────────────────────
+.trending-section {
+  background: $color-white;
+  padding: 60px 0;
+
+  .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .trending-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+
+      @media (max-width: $bp-tablet) {
+        height: 280px;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    .trending-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      padding: 28px 20px 20px;
+    }
+
+    .trending-title {
+      font-family: $font-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: $color-white;
+      letter-spacing: 0.02em;
+    }
+
+    .trending-cta {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      color: $color-gold-light;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba($color-gold-light, 0.5);
+      transition: border-color $transition-fast;
+
+      &:hover {
+        border-color: $color-gold-light;
+      }
+    }
+  }
+}
+
+// ─── TANISHQ WORLD ──────────────────────────────────────────────────
+.world-section {
+  background: $color-cream;
+  padding: 60px 0;
+
+  .world-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+
+  .world-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+
+      @media (max-width: $bp-mobile) {
+        height: 180px;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    .world-label {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      color: $color-white;
+      font-family: $font-serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
+      @media (max-width: $bp-mobile) {
+        font-size: 15px;
+        bottom: 10px;
+        left: 10px;
+      }
+    }
+  }
+}
+
+// ─── ASSURANCE STRIP ────────────────────────────────────────────────
+.assurance-section {
+  background: $color-maroon;
+  padding: 40px 0;
+
+  .assurance-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    text-align: center;
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .assurance-item {
+    padding: 20px 24px;
+    border-right: 1px solid rgba($color-white, 0.2);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: $bp-mobile) {
+      border-right: none;
+      border-bottom: 1px solid rgba($color-white, 0.2);
+
+      &:last-child { border-bottom: none; }
+    }
+
+    img {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 12px;
+      filter: brightness(0) invert(1) opacity(0.9);
+    }
+
+    h4 {
+      font-family: $font-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: $color-white;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 11px;
+      color: rgba($color-white, 0.7);
+      letter-spacing: 0.06em;
+    }
+  }
+}
+
+// ─── EXCHANGE PROGRAM ───────────────────────────────────────────────
+.exchange-section {
+  background: $color-bg-light;
+  padding: 70px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfdc95fee/homepage/homepage-exchange/home-exchange-bg.svg') center/cover no-repeat;
+    opacity: 0.05;
+  }
+
+  .exchange-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .exchange-tagline {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: $color-maroon;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: $font-serif;
+    font-size: clamp(26px, 3.5vw, 44px);
+    font-weight: 400;
+    color: $color-black;
+    margin-bottom: 14px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 14px;
+    color: $color-gray-mid;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .exchange-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 36px;
+
+    @media (max-width: $bp-mobile) {
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .stat {
+    text-align: center;
+
+    strong {
+      display: block;
+      font-family: $font-serif;
+      font-size: 32px;
+      color: $color-maroon;
+      font-weight: 400;
+
+      @media (max-width: $bp-mobile) {
+        font-size: 24px;
+      }
+    }
+
+    span {
+      font-size: 11px;
+      color: $color-gray-mid;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: $color-maroon;
+    color: $color-white;
+    padding: 13px 36px;
+    font-size: 12px;
+    font-family: $font-sans;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background $transition-fast, transform $transition-fast;
+
+    &:hover {
+      background: $color-maroon-dark;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// ─── GENDER SHOP ────────────────────────────────────────────────────
+.gender-section {
+  background: $color-white;
+  padding: 60px 0;
+
+  .gender-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  }
+
+  .gender-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+
+      @media (max-width: $bp-mobile) {
+        height: 180px;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    .gender-label {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: $color-white;
+
+      h3 {
+        font-family: $font-serif;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        margin-bottom: 6px;
+
+        @media (max-width: $bp-mobile) {
+          font-size: 16px;
+        }
+      }
+
+      span {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba($color-maroon, 0.85);
+        padding: 4px 14px;
+        border-radius: 1px;
+      }
+    }
+  }
+}
+
+// ─── TANISHQ EXPERIENCE ─────────────────────────────────────────────
+.experience-section {
+  background: $color-bg-light;
+  padding: 60px 0;
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .exp-card {
+    background: $color-white;
+    border: 1px solid $color-gray-border;
+    border-radius: 4px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color $transition-fast, box-shadow $transition-fast, transform $transition-med;
+
+    &:hover {
+      border-color: $color-maroon;
+      box-shadow: 0 8px 24px rgba($color-maroon, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .exp-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 36px;
+        height: 36px;
+        color: $color-maroon;
+      }
+    }
+
+    h4 {
+      font-size: 12px;
+      font-family: $font-sans;
+      font-weight: 500;
+      color: $color-gray-dark;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+    }
+  }
+}
+
+// ─── NEW ARRIVALS ───────────────────────────────────────────────────
+.arrivals-section {
+  background: $color-white;
+  padding: 60px 0;
+
+  .arrivals-band {
+    background: $color-maroon;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    img {
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    p {
+      font-family: $font-sans;
+      font-size: 12px;
+      color: rgba($color-white, 0.85);
+      letter-spacing: 0.06em;
+    }
+
+    .arrivals-badge {
+      margin-left: auto;
+      background: rgba($color-white, 0.15);
+      color: $color-white;
+      padding: 4px 12px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+    }
+  }
+
+  .arrivals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+
+  .arrival-card {
+    cursor: pointer;
+
+    &:hover .arrival-img img {
+      transform: scale(1.04);
+    }
+
+    .arrival-img {
+      overflow: hidden;
+      border-radius: 3px;
+      margin-bottom: 12px;
+
+      img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+
+        @media (max-width: $bp-mobile) {
+          height: 180px;
+        }
+      }
+    }
+
+    h4 {
+      font-family: $font-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: $color-black;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 12px;
+      color: $color-gray-mid;
+    }
+  }
+}
